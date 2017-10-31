@@ -26,16 +26,16 @@ function checkForChange() {
   
   //checks if the extracted html contains the find string
   if(text.indexOf(find) != -1){
-    
+    var x=1;
     var sheet = SpreadsheetApp.getActiveSheet();  
     var cell = sheet.getRange(1,1);
     
-    if(cell.getValue() == ''){
+    if((cell.getValue() == '')&&(x==1)){
       cell.setValue(text);
       MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
     }
     
-    else if(cell.getValue() != text){
+    else if((cell.getValue() != text)&&(x==1)){
       cell.setValue(text);
       MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
     }
