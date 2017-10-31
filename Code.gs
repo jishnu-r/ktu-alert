@@ -7,7 +7,7 @@ function init() {
   }  
 }
 
-function checkForChange() {
+function checkForChange() { //function to check for change
   
   //The string to search for
   var find = 'S3';
@@ -28,16 +28,18 @@ function checkForChange() {
   if(text.indexOf(find) != -1){
     
     var sheet = SpreadsheetApp.getActiveSheet();  
-    var cell = sheet.getRange(1,1);
+    var cell = sheet.getRange(1,1); //gets first cell of spreadsheet
     
     if(cell.getValue() == ''){
       cell.setValue(text);
       MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
+      alert("New Change");
     }
     
     else if(cell.getValue() != text){
       cell.setValue(text);
       MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
+      alert("New Change");
     }
   }
   
