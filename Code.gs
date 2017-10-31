@@ -1,4 +1,3 @@
-
 function init() {  
   if (ScriptApp.getProjectTriggers().length == 0) {
     // Set up a monitor that triggers every 5 minutes
@@ -12,7 +11,7 @@ function checkForChange() {
   //The string to search for
   var find = 'S3';
   
-  var url = 'https://ktu.edu.in/eu/core/announcements.htm';
+  var url = 'https://ktu.edu.in/eu/core/announcements.htm';//url of site
   var html = UrlFetchApp.fetch(url).getContentText();
  
   html = html.substring(0,15000);
@@ -32,12 +31,12 @@ function checkForChange() {
     
     if(cell.getValue() == ''){
       cell.setValue(text);
-      MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
+      MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)//Sends Email
     }
     
     else if(cell.getValue() != text){
       cell.setValue(text);
-      MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
+      MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)//Sends Email
     }
   }
   
