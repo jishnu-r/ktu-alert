@@ -14,8 +14,10 @@ function checkForChange() {
   
   var url = 'https://ktu.edu.in/eu/core/announcements.htm';
   var html = UrlFetchApp.fetch(url).getContentText();
+  var x=0;
+  var y=15000;
  
-  html = html.substring(0,15000);
+  html = html.substring(x,y);
   
   var regex = /<b>/gi, result, indices = [];
   while ( (result = regex.exec(html)) ) {
