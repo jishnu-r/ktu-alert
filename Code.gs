@@ -9,12 +9,12 @@ function init() {
 function checkForChange() {
   
   //The string to search for
-  var find = 'S3';
+  var find = 'S7';
   
   var url = 'https://ktu.edu.in/eu/core/announcements.htm';
   var html = UrlFetchApp.fetch(url).getContentText();
  
-  html = html.substring(0,15000);
+  html = html.substring(0,10000);
   
   var regex = /<b>/gi, result, indices = [];
   while ( (result = regex.exec(html)) ) {
@@ -31,7 +31,7 @@ function checkForChange() {
     
     if(cell.getValue() == ''){
       cell.setValue(text);
-      MailApp.sendEmail('biswasb007@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
+      MailApp.sendEmail('hello@gmail.com', 'ktu alert', 'New change for '+find+'\n'+text)
     }
     
     else if(cell.getValue() != text){
