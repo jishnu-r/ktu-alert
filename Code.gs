@@ -40,6 +40,14 @@ function checkForChange() {
     }
   }
   
+  function core() {  
+  if (ScriptApp.getProjectTriggers().length == 1) {
+    // Set up a monitor that triggers every 5 minutes
+    ScriptApp.newTrigger("checkForChange")
+      .timeBased().everyMinutes(5).create();
+    if(x>0)
+    {i=i+1}
+  } 
 
   
 }
